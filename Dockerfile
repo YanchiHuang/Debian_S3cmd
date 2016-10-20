@@ -15,7 +15,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends runit \
     && apt-get install -y --no-install-recommends vim \
     && apt-get install -y --no-install-recommends cron \
-    && apt-get install -y --no-install-recommends PIPY \
+    && apt-get install -y --no-install-recommends python-pip \
     && apt-get install -y --no-install-recommends ssh \
     && mkdir /etc/service/cron \
     && echo '#!/bin/sh' > /etc/service/cron/run \
@@ -29,7 +29,9 @@ RUN apt-get update \
     && rm -f /etc/cron.weekly/fstrim \
     && apt-get purge -y --auto-remove \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* 
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install s3cmd \
+    
 	
 #設定WorkDir
 WORKDIR /etc
