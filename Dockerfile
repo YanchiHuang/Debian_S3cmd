@@ -30,7 +30,7 @@ RUN apt-get update \
     && apt-get purge -y --auto-remove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    && pip install s3cmd \
+    && pip install s3cmd 
     
 	
 #設定WorkDir
